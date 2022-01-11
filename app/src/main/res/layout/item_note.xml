@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_note_text_content"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        style="@style/text_view_style"
+        app:contentPadding="16dp"
+        app:cardUseCompatPadding="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_note_header_text_view"
+            tools:text="Название заметки"
+            style="@style/text_view_style"
+            android:gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
