@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="default_text_view_style">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:paddingStart">@dimen/default_padding</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="header_text_view_style" parent="default_text_view_style">
+        <item name="android:textSize">@dimen/header_text_size</item>
+    </style>
+
+    <style name="date_text_view_style" parent="default_text_view_style">
+    </style>
+</resources>
