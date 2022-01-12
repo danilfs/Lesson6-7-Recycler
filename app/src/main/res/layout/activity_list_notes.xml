@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/note_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ListNoteActivity" />
+
+    <ImageButton
+        android:id="@+id/add_note_button"
+        android:layout_width="@dimen/add_square_button"
+        android:layout_height="@dimen/add_square_button"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/add_button_margin"
+        android:layout_marginBottom="@dimen/add_button_margin"
+        android:background="@drawable/bg_rectangle"
+        android:elevation="@dimen/add_button_elevation" />
+
+</FrameLayout>

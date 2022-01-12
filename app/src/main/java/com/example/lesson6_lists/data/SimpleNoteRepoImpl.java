@@ -8,16 +8,53 @@ import java.util.List;
 
 public class SimpleNoteRepoImpl implements NoteRepo {
 
-    private final List<NoteEntity> notes = new ArrayList<>(notesList());
+    private static int currentId = 0;
+    private final List<NoteEntity> notes = new ArrayList<>(sampleNoteList());
 
     @Override
     public List<NoteEntity> getNotes() {
         return notes;
     }
 
-    private static List<NoteEntity> notesList() {
-    List<NoteEntity> list = new ArrayList<>();
-    list.add(new NoteEntity(0,"вещи", "вещи"));
-    return list;
+    @Override
+    public NoteEntity createNote() {
+        NoteEntity note = new NoteEntity(++currentId);
+        notes.add(note);
+        return note;
     }
+
+    @Override
+    public boolean updateNote(NoteEntity note) {
+        return true;
+    }
+
+    @Override
+    public NoteEntity findNote(int noteId) {
+        for (NoteEntity note : notes) {
+            if (note.getId() == noteId) {
+                return note;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean removeNote(int noteId) {
+        NoteEntity note = findNote(noteId);
+        if (note != null) {
+            notes.remove(note);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static List<NoteEntity> sampleNoteList() {
+        List<NoteEntity> list = new ArrayList<>();
+
+        list.add(new NoteEntity(++currentId, "Вещи", "Вещи"));
+        list.add(new NoteEntity(++currentId, "настроить комп", "123"));
+        return list;
+    }
+
 }
