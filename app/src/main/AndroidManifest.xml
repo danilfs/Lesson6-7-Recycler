@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lesson6Lists">
+        android:theme="@style/Theme.AppCompat.DayNight">
         <activity
             android:name="com.example.lesson6_lists.ui.EditorNoteActivity"
             android:exported="true" >
