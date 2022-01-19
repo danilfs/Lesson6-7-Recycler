@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">Notes</string>
-    <string name="header_hint">Название </string>
-    <string name="content_hint">Описание Заметки</string>
+    <string name="app_name">Заметки</string>
+    <string name="header_hint">Название заметки</string>
+    <string name="content_hint">Заметка</string>
+    <string name="select_color">Выберите цвет</string>
+    <string name="fire_brick">Красный</string>
+    <string name="orange_red">Гранатовый</string>
+    <string name="gold">Золотой</string>
+    <string name="sea_green">Зеленый</string>
+    <string name="slate_blue">Серо-голубой</string>
+    <string name="cornflower_blue">Васильковый</string>
+    <string name="medium_aquamarine">Аквамарин</string>
+    <string name="dark_magenta">Фиолетовый</string>
+    <string name="indian_red">Розовый</string>
+    <string name="dim_gray">Серый</string>
+    <string name="steel_blue">Синий</string>
 </resources>

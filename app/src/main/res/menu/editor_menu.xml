@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/select_color_menu_item"
+        android:icon="@drawable/ic_circle"
+        android:title="@string/select_color"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/fire_brick_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/fire_brick" />
+            <item
+                android:id="@+id/orange_red_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/orange_red" />
+            <item
+                android:id="@+id/gold_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/gold" />
+            <item
+                android:id="@+id/sea_green_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/sea_green" />
+            <item
+                android:id="@+id/slate_blue_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/slate_blue" />
+            <item
+                android:id="@+id/steel_blue_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/steel_blue" />
+            <item
+                android:id="@+id/cornflower_blue_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/cornflower_blue" />
+            <item
+                android:id="@+id/medium_aquamarine_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/medium_aquamarine" />
+            <item
+                android:id="@+id/dark_magenta_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/dark_magenta" />
+            <item
+                android:id="@+id/indian_red_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/indian_red" />
+            <item
+                android:id="@+id/dim_gray_menu_item"
+                android:icon="@drawable/ic_circle"
+                android:title="@string/dim_gray" />
+        </menu>
+    </item>
+</menu>
