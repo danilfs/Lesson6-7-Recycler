@@ -90,5 +90,11 @@ public class EditorFragment extends Fragment {
         note.setHeader(headerEditText.getText().toString());
         note.setContent(contentEditText.getText().toString());
         repository.updateNote(note);
+        controller.onNoteChanged(note);
     }
+
+    public Note getNote() {
+        return note;
+    }
+
 }
