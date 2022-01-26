@@ -14,4 +14,10 @@
     <string name="indian_red">Розовый</string>
     <string name="dim_gray">Серый</string>
     <string name="steel_blue">Синий</string>
+    <string name="ask_delete">Удалить заметку?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="note_deleted">Заметка удалена</string>
+    <string name="note_created">Создана новая заметка</string>
+    <string name="color_changed">Изменен цвет заметки</string>
 </resources>

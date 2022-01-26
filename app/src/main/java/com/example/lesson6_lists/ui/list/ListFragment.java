@@ -1,13 +1,16 @@
 package com.example.lesson6_lists.ui.list;
 
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +20,8 @@ import com.example.lesson6_lists.R;
 
 import com.example.lesson6_lists.domain.Note;
 import com.example.lesson6_lists.domain.NoteRepository;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +33,7 @@ public class ListFragment extends Fragment implements NoteViewHolder.Callbacks {
     private NoteAdapter adapter;
     private Context context;
     private Controller controller;
+    private RecyclerView recyclerView;
 
     public static ListFragment getInstance() {
         return new ListFragment();
@@ -63,10 +69,10 @@ public class ListFragment extends Fragment implements NoteViewHolder.Callbacks {
     }
 
     private void initRecycler(View view) {
-        RecyclerView noteRecyclerView = view.findViewById(R.id.note_recycler_view);
-        noteRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView = view.findViewById(R.id.note_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
         adapter = new NoteAdapter(repository.getNotes(), this);
-        noteRecyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -81,19 +87,35 @@ public class ListFragment extends Fragment implements NoteViewHolder.Callbacks {
 
     @Override
     public boolean onLongClickItem(Note note) {
-        if (repository.removeNote(note.getId())) {
-            int position = positionOf(note);
-            adapter.notifyItemRemoved(position);
-            adapter.notifyItemRangeChanged(position, adapter.getItemCount() - position);
-            controller.onNoteDeleted(note);
-            return true;
-        }
-        return false;
+        showDeleteNoteDialog(note);
+        return true;
+    }
+
+    private void showDeleteNoteDialog(Note note) {
+        new AlertDialog.Builder(context)
+                .setTitle(note.getHeader())
+                .setMessage(R.string.ask_delete)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    if (repository.removeNote(note.getId())) {
+                        int position = positionOf(note);
+                        adapter.notifyItemRemoved(position);
+                        adapter.notifyItemRangeChanged(position, adapter.getItemCount() - position);
+                        Toast.makeText(context, R.string.note_deleted, Toast.LENGTH_SHORT).show();
+                        controller.onNoteDeleted(note);
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
     }
 
     private void onClickAddNoteButton(View view) {
         Note note = repository.createNote();
         controller.onNoteSelected(note);
+
+        Snackbar.make(recyclerView, R.string.note_created, BaseTransientBottomBar.LENGTH_LONG)
+                .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE)
+                .setBackgroundTint(context.getColor(R.color.peach))
+                .show();
     }
 
     private int positionOf(Note note) {
