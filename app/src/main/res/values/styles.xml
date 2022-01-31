@@ -12,5 +12,6 @@
     </style>
 
     <style name="date_text_view_style" parent="default_text_view_style">
+        <item name="android:textSize">@dimen/date_text_size</item>
     </style>
 </resources>

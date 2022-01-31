@@ -1,4 +1,4 @@
-package com.example.lesson6_lists.ui;
+package com.example.lesson6_lists.ui.list;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lesson6_lists.R;
-import com.example.lesson6_lists.domain.NoteEntity;
+import com.example.lesson6_lists.domain.Note;
 
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
-    private List<NoteEntity> notes;
+    private List<Note> notes;
     private final NoteViewHolder.Callbacks callbacks;
 
-    public NoteAdapter(List<NoteEntity> notes, NoteViewHolder.Callbacks callbacks) {
+    public NoteAdapter(List<Note> notes, NoteViewHolder.Callbacks callbacks) {
         this.notes = notes;
         this.callbacks = callbacks;
     }

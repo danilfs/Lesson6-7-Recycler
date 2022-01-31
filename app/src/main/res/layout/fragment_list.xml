@@ -8,12 +8,12 @@
         android:id="@+id/note_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.ListNoteActivity" />
+        tools:context=".ui.list.RecyclerActivity" />
 
     <ImageButton
         android:id="@+id/add_note_button"
-        android:layout_width="@dimen/add_square_button"
-        android:layout_height="@dimen/add_square_button"
+        android:layout_width="@dimen/add_button_diameter"
+        android:layout_height="@dimen/add_button_diameter"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/add_button_margin"
         android:layout_marginBottom="@dimen/add_button_margin"
