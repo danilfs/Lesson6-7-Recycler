@@ -14,7 +14,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
     interface Callbacks {
         void onBindItem(Note note, int position);
         void onClickItem(Note note);
-        boolean onLongClickItem(Note note);
+        boolean onLongClickItem(Note note, View item);
     }
 
     private final Callbacks callbacks;
@@ -33,7 +33,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         if (callbacks != null) {
             callbacks.onBindItem(note, position);
             itemView.setOnClickListener(view -> callbacks.onClickItem(note));
-            itemView.setOnLongClickListener(view -> callbacks.onLongClickItem(note));
+            itemView.setOnLongClickListener(view -> callbacks.onLongClickItem(note, itemView));
         }
     }
 }

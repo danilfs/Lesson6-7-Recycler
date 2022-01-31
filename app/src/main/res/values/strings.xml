@@ -19,5 +19,8 @@
     <string name="no">Нет</string>
     <string name="note_deleted">Удалена заметка</string>
     <string name="note_created">Новая заметка создана</string>
+    <string name="add_note">Добавить заметку</string>
+    <string name="change_note">Редактировать заметку</string>
+    <string name="delete_note">Удалить заметку</string>
 
 </resources>
