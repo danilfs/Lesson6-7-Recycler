@@ -1,30 +1,47 @@
 package com.example.lesson6_lists.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
-public class Note {
-    private final int id;
+public class Note implements Serializable {
+    private UUID id;
     private Date date;
     private String header;
     private String text;
 
-    public Note(int id, Date date, String header, String text) {
-        this.id = id;
+    public Note() {
+        this.id = UUID.randomUUID();
+        this.date = new Date();
+    }
+
+    public Note(Date date, String header, String text) {
+        this();
         this.date = date;
         this.header = header;
         this.text = text;
     }
 
-    public Note(int id, String header, String text) {
-        this(id, new Date(), header, text);
+    public Note(String header, String text) {
+        this();
+        this.header = header;
+        this.text = text;
     }
 
-    public Note(int id) {
-        this(id, "", "");
-    }
-
-    public int getId() {
+    public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getHeader() {

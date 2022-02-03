@@ -14,12 +14,15 @@ import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
-    private List<Note> notes;
     private final NoteViewHolder.Callbacks callbacks;
+    private List<Note> notes;
 
-    public NoteAdapter(List<Note> notes, NoteViewHolder.Callbacks callbacks) {
-        this.notes = notes;
+    public NoteAdapter(NoteViewHolder.Callbacks callbacks) {
         this.callbacks = callbacks;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 
     @NonNull
