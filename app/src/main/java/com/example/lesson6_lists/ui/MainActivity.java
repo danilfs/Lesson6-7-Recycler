@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements ListFragment.Cont
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -34,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements ListFragment.Cont
 
     @Override
     public void onNoteSelected(Note note) {
+        // Если в альбомном режиме переключаться между разными заметками, то
+        // в стек добавляются несколько фрагментов редактора заметок. Как следствие,
+        // кнопка "назад" будет приводить не к списку заметок, а к редактору предыдущей заметки.
+        // Поэтому предварительно удаляю из стека предыдущий фрагмент с редактором.
         clearEditorFragmentContainer();
 
         getSupportFragmentManager()
@@ -57,5 +60,10 @@ public class MainActivity extends AppCompatActivity implements ListFragment.Cont
         if (listFragment != null) {
             listFragment.notifyNoteChanged(note);
         }
+    }
+
+    @Override
+    public boolean inPortraitMode() {
+        return findViewById(R.id.landscape_layout) == null;
     }
 }

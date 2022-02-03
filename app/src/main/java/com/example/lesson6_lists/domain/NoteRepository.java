@@ -1,6 +1,7 @@
 package com.example.lesson6_lists.domain;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface NoteRepository {
 
@@ -12,6 +13,6 @@ public interface NoteRepository {
 
     boolean updateNote(Note note);
 
-    boolean removeNote(int noteId);
+    boolean removeNote(UUID noteId);
 
 }

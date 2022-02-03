@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,7 +19,10 @@ import com.example.lesson6_lists.App;
 import com.example.lesson6_lists.R;
 import com.example.lesson6_lists.domain.Note;
 import com.example.lesson6_lists.domain.NoteRepository;
+import com.example.lesson6_lists.ui.list.ListFragment;
 import com.google.android.material.textfield.TextInputEditText;
+
+
 
 public class EditorFragment extends Fragment {
 
@@ -32,10 +36,6 @@ public class EditorFragment extends Fragment {
 
     private Context context;
     private Controller controller;
-
-    public interface Controller {
-        void onNoteChanged(Note note);
-    }
 
     public static EditorFragment getInstance(Note note) {
         EditorFragment fragment = new EditorFragment();
@@ -56,13 +56,6 @@ public class EditorFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        updateNote();
-        controller.onNoteChanged(note);
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -80,15 +73,15 @@ public class EditorFragment extends Fragment {
     }
 
     private void initView(View view) {
+//        TextView dateTextView = view.findViewById(R.id.date_text_view);
         headerEditText = view.findViewById(R.id.header_edit_text);
         contentEditText = view.findViewById(R.id.content_edit_text);
         if (note != null) {
+//            dateTextView.setText(NoteUtils.dateToString(note.getDate()));
             headerEditText.setText(note.getHeader());
             contentEditText.setText(note.getContent());
         }
     }
-
-
     private void updateNote() {
         note.setHeader(headerEditText.getText().toString());
         note.setContent(contentEditText.getText().toString());
@@ -98,5 +91,10 @@ public class EditorFragment extends Fragment {
 
     public Note getNote() {
         return note;
+    }
+
+    public interface Controller {
+        void onNoteChanged(Note note);
+        boolean inPortraitMode();
     }
 }
